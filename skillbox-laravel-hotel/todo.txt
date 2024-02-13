@@ -1,0 +1,5 @@
+TODOS:
+
+  - Run phpstan
+  - Check todos
+  - Delete var_dump's, dd's and dump's
