@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Facility;
+use App\Models\Hotel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,13 +29,24 @@ class HotelFactory extends Factory
      */
     public function definition(): array
     {
-        $posterUrl = 'images/hotels/' . self::IMAGE_URLS[array_rand(self::IMAGE_URLS)];
+        $posterUrl = 'images/hotels/' . fake()->randomElement(self::IMAGE_URLS);
 
         return [
-            'name' => fake()->words(random_int(1, 3), true),
+            'name' => fake()->words(rand(1, 3), true),
             'description' => fake()->paragraph,
             'poster_url' => $posterUrl,
             'address' => fake()->address,
         ];
+    }
+
+    public function configure(): self
+    {
+        return $this->afterCreating(function (Hotel $hotel) {
+            $facilities = Facility::all();
+
+            $hotel->facilities()->saveMany(
+                $facilities->random(rand(0, 10))
+            );
+        });
     }
 }

@@ -5,14 +5,16 @@ namespace Database\Seeders;
 use App\Enums\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::truncate();
+        DB::table('users')->delete();
+        DB::statement("ALTER TABLE `users` AUTO_INCREMENT = 1");
 
-        User::factory(10)->create();
+        User::factory(50)->create();
 
         User::factory()->create([
             'name' => 'Обычный пользователь',

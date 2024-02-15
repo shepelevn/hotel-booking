@@ -15,7 +15,7 @@ class FacilityFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->words(random_int(1, 3), true),
+            'name' => fake()->words(rand(1, 3), true),
         ];
     }
 }

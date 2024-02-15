@@ -4,6 +4,8 @@ parameters:
     level: max
     paths:
         - app
+        - database/factories
+        - database/seeders
     excludePaths:
         - vendor
         - app/Http/Controllers/Auth

@@ -1,8 +1,11 @@
 TODOS:
 
-  - Create booking model
-  - Create relations
+    - Add routes and controllers
+    - Add authorization
 
-  - Run phpstan
-  - Check todos
-  - Delete var_dump's, dd's and dump's
+    - Add mailing functionality
+    - Add admin panel
+
+    - Run phpstan
+    - Check todos
+    - Delete var_dump's, dd's and dump's

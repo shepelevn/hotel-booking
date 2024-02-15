@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Facility;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class FacilitySeeder extends Seeder
 {
@@ -13,7 +13,8 @@ class FacilitySeeder extends Seeder
      */
     public function run(): void
     {
-        Facility::truncate();
+        DB::table('facilities')->delete();
+        DB::statement("ALTER TABLE `facilities` AUTO_INCREMENT = 1");
 
         Facility::factory(10)->create();
     }
