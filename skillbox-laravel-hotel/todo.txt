@@ -1,6 +1,7 @@
 TODOS:
 
-  - Create room model
+  - Create booking model
+  - Create relations
 
   - Run phpstan
   - Check todos

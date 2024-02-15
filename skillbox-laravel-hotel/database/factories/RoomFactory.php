@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Hotel>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Room>
  */
-class HotelFactory extends Factory
+class RoomFactory extends Factory
 {
     private const IMAGE_URLS = [
         '1.jpg',
@@ -27,13 +27,15 @@ class HotelFactory extends Factory
      */
     public function definition(): array
     {
-        $posterUrl = 'images/hotels/' . self::IMAGE_URLS[array_rand(self::IMAGE_URLS)];
+        $posterUrl = 'images/rooms/' . self::IMAGE_URLS[array_rand(self::IMAGE_URLS)];
 
         return [
-            'name' => fake()->words(random_int(1, 3), true),
+            'name' => fake()->words(1, true),
             'description' => fake()->paragraph,
             'poster_url' => $posterUrl,
-            'address' => fake()->address,
+            'floor_area' => fake()->randomFloat(2, 20, 50),
+            'type' => fake()->words(random_int(1, 3), true),
+            'price' => fake()->randomFloat(2, 1000, 10000),
         ];
     }
 }
