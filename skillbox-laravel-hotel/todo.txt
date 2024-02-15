@@ -1,5 +1,7 @@
 TODOS:
 
+  - Create room model
+
   - Run phpstan
   - Check todos
   - Delete var_dump's, dd's and dump's
