@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('index');
+
+Route::prefix('/hotels')->group(function () {
+    Route::get('/', [HotelController::class, 'index'])->name('hotels.index');
+    /* Route::get('/{hotel}', [HotelController::class, 'show']); */
 });
+
+/* TODO: Delete later. Temporary solution, so frontend could work */
+
+Route::get('/1', function () {
+    return 'Not implemented';
+})->name('bookings.index');
+
+Route::get('/2', function () {
+    return 'Not implemented';
+})->name('hotels.show');

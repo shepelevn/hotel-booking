@@ -1,10 +1,12 @@
 TODOS:
 
-    - Add routes and controllers
     - Add authorization
+    - Add routes and controllers
 
     - Add mailing functionality
     - Add admin panel
+
+    - Add '/' route with 'index' layout
 
     - Run phpstan
     - Check todos
