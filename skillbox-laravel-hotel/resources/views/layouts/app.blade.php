@@ -1,4 +1,3 @@
-{{-- TODO: Delete later maybe --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>

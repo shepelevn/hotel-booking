@@ -1,9 +1,8 @@
 TODOS:
 
-    - Add authorization
     - Add routes and controllers
 
-    - Add mailing functionality
+    - Add booking verification email sending logic
     - Add admin panel
 
     - Add '/' route with 'index' layout

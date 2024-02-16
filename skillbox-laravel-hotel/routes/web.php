@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* TODO: Delete if route is not used */
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('welcome');
+
 Route::get('/', function () {
-    return view('index');
+    return redirect('/hotels');
 })->name('index');
 
 Route::prefix('/hotels')->group(function () {
@@ -24,7 +30,6 @@ Route::prefix('/hotels')->group(function () {
 });
 
 /* TODO: Delete later. Temporary solution, so frontend could work */
-
 Route::get('/1', function () {
     return 'Not implemented';
 })->name('bookings.index');
@@ -32,3 +37,11 @@ Route::get('/1', function () {
 Route::get('/2', function () {
     return 'Not implemented';
 })->name('hotels.show');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
