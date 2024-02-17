@@ -15,7 +15,7 @@ class BookingService
     {
         $startedAtDate = new DateTimeImmutable($bookingData['started_at']);
         $finishedAtDate = new DateTimeImmutable($bookingData['finished_at']);
-        $days = intval($finishedAtDate->diff($startedAtDate)->format('%a'));
+        $days = self::getDays($startedAtDate, $finishedAtDate);
 
         $bookingData['days'] = $days;
 
@@ -24,5 +24,10 @@ class BookingService
         $bookingData['price'] = $room->price * $days;
 
         return Booking::create($bookingData);
+    }
+
+    public static function getDays(DateTimeImmutable $startedAt, DateTimeImmutable $finishedAt): int
+    {
+        return intval($finishedAt->diff($startedAt)->format('%a'));
     }
 }

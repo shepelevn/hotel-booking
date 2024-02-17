@@ -30,8 +30,8 @@ class HotelRoomBookingSeeder extends Seeder
                     $days = rand(1, 30);
                     $endDelta = $startDelta + $days;
 
-                    $startedAt = new DateTimeImmutable($startDelta . ' days');
-                    $finishedAt = new DateTimeImmutable($endDelta . ' days');
+                    $startedAt = (new DateTimeImmutable($startDelta . ' days'));
+                    $finishedAt = (new DateTimeImmutable($endDelta . ' days'));
 
                     $price = $room->price * $days;
 

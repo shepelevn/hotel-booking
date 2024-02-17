@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,28 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* TODO: Delete if route is not used */
-Route::get('/welcome', function () {
-    return view('welcome');
-})->middleware(['auth', 'verified'])->name('welcome');
-
 Route::get('/', function () {
     return redirect('/hotels');
 })->name('index');
 
 Route::prefix('/hotels')->group(function () {
     Route::get('/', [HotelController::class, 'index'])->name('hotels.index');
-    /* Route::get('/{hotel}', [HotelController::class, 'show']); */
+    Route::get('/{hotel}', [HotelController::class, 'show'])->name('hotels.show');
 });
 
-/* TODO: Delete later. Temporary solution, so frontend could work */
-Route::get('/1', function () {
-    return 'Not implemented';
-})->name('bookings.index');
-
-Route::get('/2', function () {
-    return 'Not implemented';
-})->name('hotels.show');
+Route::middleware(['auth', 'verified'])->prefix('/bookings')->group(function () {
+    Route::get('/', [BookingController::class, 'index'])->name('bookings.index');
+    Route::post('/', [BookingController::class, 'store'])->name('bookings.store');
+    Route::get('/{booking}', [BookingController::class, 'show'])->name('bookings.show');
+});
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

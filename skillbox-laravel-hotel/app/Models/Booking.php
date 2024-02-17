@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Auth;
 
 class Booking extends Model
 {
@@ -18,15 +19,25 @@ class Booking extends Model
         'finished_at',
         'days',
         'price',
+        'room_id',
     ];
 
     /**
      * @var array<string, string>
      */
     protected $casts = [
-        'started_at' => 'datetime',
-        'finished_at' => 'datetime',
+        'started_at' => 'date',
+        'finished_at' => 'date',
     ];
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            if (is_null($product->user_id)) {
+                $product->user_id = Auth::id();
+            }
+        });
+    }
 
     /**
      * @return BelongsTo<Room, Booking>

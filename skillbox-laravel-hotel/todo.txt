@@ -1,12 +1,17 @@
 TODOS:
 
-    - Add routes and controllers
-
+    - Add no rooms if no rooms are found
+    - Add room type to room card
+    - Add delete functionality to booking
     - Add booking verification email sending logic
     - Add admin panel
 
-    - Add '/' route with 'index' layout
+    - Create search form for hotels rooms and bookings
+    - Write tests
+    - Add translation
+    - Add pagination for hotels rooms and bookings
 
     - Run phpstan
     - Check todos
     - Delete var_dump's, dd's and dump's
+    - Delete unused imports
