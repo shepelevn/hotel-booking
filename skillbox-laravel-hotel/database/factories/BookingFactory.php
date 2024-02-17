@@ -18,6 +18,7 @@ class BookingFactory extends Factory
         return [
             'price' => fake()->randomFloat(0, 1000, 60000),
             'user_id' => fake()->randomElement(User::pluck('id')),
+            'verified_at' => fake()->dateTime,
         ];
     }
 }

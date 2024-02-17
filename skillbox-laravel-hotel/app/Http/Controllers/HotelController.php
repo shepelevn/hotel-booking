@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Booking;
 use App\Models\Hotel;
 use App\Models\Room;
 use App\Services\BookingService;

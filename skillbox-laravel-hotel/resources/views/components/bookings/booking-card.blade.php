@@ -27,6 +27,9 @@
                             {{ \Carbon\Carbon::parse($booking->finished_at)->format('d.m.Y') }}</p>
                         <p class="text-sm leading-none text-gray-800"><span>Кол-во ночей: </span> {{ $booking->days }}
                         </p>
+                        @if (!$booking->verified_at)
+                            <p class="text-red-500">Not verified</p>
+                        @endif
                     </div>
                 </div>
                 <div class="flex justify-end space-x-8 items-end w-full">

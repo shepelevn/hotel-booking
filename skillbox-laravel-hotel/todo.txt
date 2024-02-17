@@ -1,11 +1,12 @@
 TODOS:
 
-    - Add booking verification email sending logic
+    - Add flash messages
     - Add admin panel
 
-    - Create search form for hotels rooms and bookings
+    - Create search form and sorting buttons for hotels rooms and bookings
     - Write tests
     - Add translation
+    - Translate emails
     - Add pagination for hotels rooms and bookings
 
     - Run phpstan

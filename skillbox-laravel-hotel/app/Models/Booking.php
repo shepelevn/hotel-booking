@@ -28,6 +28,7 @@ class Booking extends Model
     protected $casts = [
         'started_at' => 'date',
         'finished_at' => 'date',
+        'verified_at' => 'date',
     ];
 
     protected static function booted()

@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Room;
 use App\Services\BookingService;
-use DateTimeImmutable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 use LogicException;
-use Spatie\Backtrace\Arguments\Reducers\DateTimeArgumentReducer;
 
 class BookingController extends Controller
 {
@@ -54,9 +52,22 @@ class BookingController extends Controller
             throw ValidationException::withMessages(['room_id' => 'Номер занят на данные даты']);
         }
 
-        $bookingService->createBookingFromDatesAndRoom($bookingData);
+        $booking = $bookingService->createBookingFromDatesAndRoom($bookingData);
 
         return Redirect::route('bookings.index', [], 303);
+    }
+
+    public function verify(Booking $booking, Request $request): RedirectResponse
+    {
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }
+
+        $booking->verified_at = now();
+
+        $booking->save();
+
+        return Redirect::route('bookings.index');
     }
 
     public function destroy(Booking $booking): RedirectResponse
