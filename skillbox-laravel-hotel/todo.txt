@@ -1,9 +1,8 @@
 TODOS:
 
-    - Add flash messages
     - Add admin panel
 
-    - Create search form and sorting buttons for hotels rooms and bookings
+    - Create search form and sorting buttons for hotels, rooms and bookings
     - Write tests
     - Add translation
     - Translate emails

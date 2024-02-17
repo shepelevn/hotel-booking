@@ -49,10 +49,14 @@ class BookingController extends Controller
         ;
 
         if ($crossedBookingsCount > 0) {
+            session()->flash('danger-flash', __('Room booking failed'));
+
             throw ValidationException::withMessages(['room_id' => 'Номер занят на данные даты']);
         }
 
-        $booking = $bookingService->createBookingFromDatesAndRoom($bookingData);
+        $bookingService->createBookingFromDatesAndRoom($bookingData);
+
+        session()->flash('success-flash', __('Room booked successfuly'));
 
         return Redirect::route('bookings.index', [], 303);
     }
@@ -60,6 +64,8 @@ class BookingController extends Controller
     public function verify(Booking $booking, Request $request): RedirectResponse
     {
         if (! $request->hasValidSignature()) {
+            session()->flash('danger-flash', __('Booking confirmation failed. Wrong link signature.'));
+
             abort(401);
         }
 
@@ -67,12 +73,16 @@ class BookingController extends Controller
 
         $booking->save();
 
+        session()->flash('success-flash', __('Booking verified'));
+
         return Redirect::route('bookings.index');
     }
 
     public function destroy(Booking $booking): RedirectResponse
     {
         $booking->delete();
+
+        session()->flash('success-flash', __('Booking removed'));
 
         return Redirect::route('bookings.index', [], 303);
     }

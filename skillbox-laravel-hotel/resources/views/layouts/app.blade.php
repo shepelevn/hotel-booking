@@ -16,6 +16,8 @@
 
     </head>
     <body class="font-sans antialiased">
+        <x-flashes />
+
         <div class="bg-gray-100 min-h-screen">
             @include('layouts.navigation')
 
