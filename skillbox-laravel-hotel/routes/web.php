@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->prefix('/bookings')->group(function () 
     Route::get('/', [BookingController::class, 'index'])->name('bookings.index');
     Route::post('/', [BookingController::class, 'store'])->name('bookings.store');
     Route::get('/{booking}', [BookingController::class, 'show'])->name('bookings.show');
+    Route::delete('/{booking}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {

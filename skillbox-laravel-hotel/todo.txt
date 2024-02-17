@@ -1,6 +1,5 @@
 TODOS:
 
-    - Add delete functionality to booking
     - Add booking verification email sending logic
     - Add admin panel
 

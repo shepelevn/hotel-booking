@@ -58,4 +58,11 @@ class BookingController extends Controller
 
         return Redirect::route('bookings.index', [], 303);
     }
+
+    public function destroy(Booking $booking): RedirectResponse
+    {
+        $booking->delete();
+
+        return Redirect::route('bookings.index', [], 303);
+    }
 }
