@@ -1,7 +1,6 @@
 TODOS:
 
-    - Add no rooms if no rooms are found
-    - Add room type to room card
+    - Add no rooms if no rooms are found to the template
     - Add delete functionality to booking
     - Add booking verification email sending logic
     - Add admin panel

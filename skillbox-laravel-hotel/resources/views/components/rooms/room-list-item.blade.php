@@ -20,6 +20,10 @@
             <p>
                 {{ $room->description }}
             </p>
+            <h3 class="font-bold mt-5">{{ __('Room type') }}</h3>
+            <p>
+                {{ $room->type }}
+            </p>
         </div>
         <hr>
         <div class="flex justify-end pt-2">
