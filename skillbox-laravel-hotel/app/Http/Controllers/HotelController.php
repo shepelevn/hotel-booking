@@ -15,7 +15,9 @@ class HotelController extends Controller
 {
     public function index(): View
     {
-        $hotels = Hotel::all();
+        $hotels = Hotel::with('rooms')->get()->sortBy(function (Hotel $hotel) {
+            return $hotel->rooms->min('price');
+        });
 
         return view('hotels.index', compact('hotels'));
     }
@@ -28,7 +30,8 @@ class HotelController extends Controller
                 'end_date' => 'required|date|after:start_date',
             ]);
 
-            $rooms = Room::where('hotel_id', $hotel->id)
+            $rooms = Room::orderBy('floor_area')
+                ->where('hotel_id', $hotel->id)
                 ->whereDoesntHave('bookings', function (Builder $query) use ($datesData) {
                     $query
                         ->where('started_at', '<=', $datesData['start_date'])

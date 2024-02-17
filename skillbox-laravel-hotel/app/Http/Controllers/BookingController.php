@@ -24,7 +24,7 @@ class BookingController extends Controller
             throw new LogicException('Authenticated user not found');
         }
 
-        $bookings = $user->bookings;
+        $bookings = $user->bookings()->orderBy('created_at', 'DESC')->get();
 
         return view('bookings.index', compact('bookings'));
     }
