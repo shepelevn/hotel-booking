@@ -36,7 +36,7 @@ class HotelRoomBookingSeeder extends Seeder
                     $price = $room->price * $days;
 
                     Booking::factory()
-                        ->create([
+                        ->createQuietly([
                             'started_at' => $startedAt,
                             'finished_at' => $finishedAt,
                             'days' => $days,

@@ -29,7 +29,6 @@
         <div class="flex justify-end pt-2">
             <div class="flex flex-col">
                 <span class="text-lg font-bold">{{ $room->price * $totalDays }} руб.</span>
-                {{-- TODO: Add numerization --}}
                 <span>за @plural($totalDays, 'ночь')</span>
             </div>
             <form class="ml-4" method="POST" action="{{ route('bookings.store') }}">

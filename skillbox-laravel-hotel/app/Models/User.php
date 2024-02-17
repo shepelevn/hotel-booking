@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use App\Enums\Role;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Casts\AsEnumArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -22,8 +20,8 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         parent::boot();
 
         static::creating(function ($model) {
-            if (!$model->roles) {
-                $model->roles = [Role::User];
+            if (!$model->role) {
+                $model->role()->associate(Role::where('name', 'user')->firstOrFail());
             }
         });
     }
@@ -51,7 +49,6 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
-        'roles' => AsEnumArrayObject::class . ':' . Role::class,
     ];
 
     /**
