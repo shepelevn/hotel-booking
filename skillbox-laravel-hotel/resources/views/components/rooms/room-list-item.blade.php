@@ -30,7 +30,7 @@
             <div class="flex flex-col">
                 <span class="text-lg font-bold">{{ $room->price * $totalDays }} руб.</span>
                 {{-- TODO: Add numerization --}}
-                <span>за {{ $totalDays }} ночей</span>
+                <span>за @plural($totalDays, 'ночь')</span>
             </div>
             <form class="ml-4" method="POST" action="{{ route('bookings.store') }}">
                 @csrf
