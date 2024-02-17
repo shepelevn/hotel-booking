@@ -48,14 +48,18 @@
                     </div>
                 </div>
             </form>
-            @if($startDate && $endDate)
-                <div class="flex flex-col w-full lg:w-4/5">
-                    @foreach($rooms as $room)
-                        <x-rooms.room-list-item :room="$room" :totalDays="$totalDays" class="mb-4"/>
-                    @endforeach
-                </div>
-            @else
-                <div></div>
+            @if (Request::get('start_date') && Request::get('end_date'))
+                @if (count($rooms) > 0)
+                    <div class="flex flex-col w-full lg:w-4/5">
+                        @foreach($rooms as $room)
+                            <x-rooms.room-list-item :room="$room" :totalDays="$totalDays" class="mb-4"/>
+                        @endforeach
+                    </div>
+                @else
+                    <div>
+                        {{ __('There are no rooms that are free for selected interval') }}
+                    </div>
+                @endif
             @endif
         </div>
     </div>
