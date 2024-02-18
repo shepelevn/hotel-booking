@@ -53,9 +53,15 @@
                                     {{ __('Edit Profile') }}
                                 </x-dropdown-link>
 
+                                @if (Auth::user()->hasRole('admin'))
+                                    <x-dropdown-link href="/admin">
+                                        {{ __('Administrator Panel') }}
+                                    </x-dropdown-link>
+                                @endif
+
                                 <x-dropdown-button type="submit">
-                                        {{ __('Log Out') }}
-                                </x-dropdown-link>
+                                    {{ __('Log Out') }}
+                                    </x-dropdown-link>
                             </form>
                         </x-slot>
                     </x-dropdown>
@@ -106,10 +112,10 @@
         @if(auth()->check())
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4 hover:bg-slate-50">
-                <a href="{{ route('profile.edit') }}">
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                </a>
+                    <a href="{{ route('profile.edit') }}">
+                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    </a>
                 </div>
 
                 <div class="mt-3 space-y-1">
