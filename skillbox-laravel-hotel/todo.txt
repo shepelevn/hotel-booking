@@ -1,12 +1,16 @@
 TODOS:
 
-    - Add admin panel
+    - Add link to admin panel in header
+
+    - Add check for user in bookings.destroy
 
     - Create search form and sorting buttons for hotels, rooms and bookings
     - Write tests
     - Add translation
     - Translate emails
     - Add pagination for hotels rooms and bookings
+
+    - Add admin panel
 
     - Run phpstan
     - Check todos
