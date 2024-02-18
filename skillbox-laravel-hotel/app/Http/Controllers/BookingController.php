@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Services\BookingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -29,6 +30,8 @@ class BookingController extends Controller
 
     public function show(Booking $booking): View
     {
+        $this->authorize('view', $booking);
+
         return view('bookings.show', compact('booking'));
     }
 
@@ -80,6 +83,8 @@ class BookingController extends Controller
 
     public function destroy(Booking $booking): RedirectResponse
     {
+        $this->authorize('delete', $booking);
+
         $booking->delete();
 
         session()->flash('success-flash', __('Booking removed'));
