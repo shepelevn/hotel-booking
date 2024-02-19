@@ -20,15 +20,6 @@
         <div class="flex flex-col">
             <div class="text-2xl text-center md:text-start font-bold">Забронировать комнату</div>
 
-            {{-- TODO: Delete later --}}
-            @if ($errors->any())
-                <div class="text-red-500 pt-5">
-                    @foreach ($errors->all() as $error)
-                        <div>{{ $error }}</div>
-                    @endforeach
-                </div>
-            @endif
-
             <x-form-validation-errors />
 
             <x-forms.rooms :startDate="$startDate" :endDate="$endDate" />

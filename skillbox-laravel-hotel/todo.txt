@@ -10,4 +10,4 @@ TODOS:
     - Run phpstan
     - Check todos
     - Delete var_dump's, dd's and dump's
-    - Delete unused imports
+    - Delete unused imports for ./app/ ./database/ and ./tests/

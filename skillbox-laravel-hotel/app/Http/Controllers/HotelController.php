@@ -7,7 +7,6 @@ use App\Models\Room;
 use App\Services\BookingService;
 use DateTimeImmutable;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller

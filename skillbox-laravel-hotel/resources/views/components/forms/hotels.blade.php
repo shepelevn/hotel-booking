@@ -1,6 +1,4 @@
 <form class="flex flex-row flex-wrap gap-5 mb-5" method="get">
-    <x-form-validation-errors />
-
     <x-input-label for="search">
         {{ __('Search') }}
         <x-input type="text" name="search" id="search" value="{{ request()->input('search') }}" />

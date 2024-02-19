@@ -4,6 +4,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use TCG\Voyager\Facades\Voyager;
 
 /*
 |--------------------------------------------------------------------------
