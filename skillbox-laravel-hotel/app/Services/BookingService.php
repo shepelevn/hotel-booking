@@ -17,8 +17,6 @@ class BookingService
         $finishedAtDate = new DateTimeImmutable($bookingData['finished_at']);
         $days = self::getDays($startedAtDate, $finishedAtDate);
 
-        $bookingData['days'] = $days;
-
         $room = Room::findOrFail(intval($bookingData['room_id']));
 
         $bookingData['price'] = $room->price * $days;

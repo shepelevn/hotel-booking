@@ -14,7 +14,7 @@ return new class () extends Migration {
             $table->id();
             $table->date('started_at');
             $table->date('finished_at');
-            $table->integer('days');
+            $table->integer('days')->virtualAs('DATEDIFF(finished_at, started_at)');
             $table->float('price');
             $table->timestamps();
 

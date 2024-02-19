@@ -1,7 +1,5 @@
 TODOS:
 
-    - Make days column virtual
-
     - Write tests
     - Add translation
     - Translate emails

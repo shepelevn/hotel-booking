@@ -39,7 +39,6 @@ class HotelRoomBookingSeeder extends Seeder
                         ->createQuietly([
                             'started_at' => $startedAt,
                             'finished_at' => $finishedAt,
-                            'days' => $days,
                             'price' => $price,
                             'room_id' => $room->id,
                         ]);
