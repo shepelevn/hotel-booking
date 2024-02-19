@@ -20,6 +20,7 @@
         <div class="flex flex-col">
             <div class="text-2xl text-center md:text-start font-bold">Забронировать комнату</div>
 
+            {{-- TODO: Delete later --}}
             @if ($errors->any())
                 <div class="text-red-500 pt-5">
                     @foreach ($errors->all() as $error)
@@ -28,26 +29,10 @@
                 </div>
             @endif
 
-            <form method="get" action="{{ url()->current() }}">
-                <div class="flex my-6">
-                    <div class="flex items-center mr-5">
-                        <div class="relative">
-                            <input name="start_date" min="{{ date('Y-m-d') }}" value="{{ $startDate }}"
-                                                                               placeholder="Дата заезда" type="date"
-                                                                                                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5">
-                        </div>
-                        <span class="mx-4 text-gray-500">по</span>
-                        <div class="relative">
-                            <input name="end_date" type="date" min="{{ date('Y-m-d') }}" value="{{ $endDate }}"
-                                                                                         placeholder="Дата выезда"
-                                                                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5">
-                        </div>
-                    </div>
-                    <div>
-                        <x-the-button type="submit" class=" h-full w-full">Загрузить номера</x-the-button>
-                    </div>
-                </div>
-            </form>
+            <x-form-validation-errors />
+
+            <x-forms.rooms :startDate="$startDate" :endDate="$endDate" />
+
             @if (Request::get('start_date') && Request::get('end_date'))
                 @if (count($rooms) > 0)
                     <div class="flex flex-col w-full lg:w-4/5">
@@ -57,7 +42,7 @@
                     </div>
                 @else
                     <div>
-                        {{ __('There are no rooms that are free for selected interval') }}
+                        {{ __('No rooms found') }}
                     </div>
                 @endif
             @endif

@@ -1,6 +1,7 @@
 TODOS:
 
-    - Create search form and sorting buttons for hotels, rooms and bookings
+    - Make days column virtual
+
     - Write tests
     - Add translation
     - Translate emails

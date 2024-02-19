@@ -7,7 +7,6 @@ use App\Models\Room;
 use App\Services\BookingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -15,15 +14,27 @@ use LogicException;
 
 class BookingController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
+        $queryData = $request->validate([
+            'search' => 'string|nullable',
+            'sort' => 'string|nullable|in:room_name,price,days,started_at,created_at,verified_at',
+            'order' => 'string|nullable|in:asc,desc',
+            'min_price_filter' => 'integer|min:0|nullable',
+            'max_price_filter' => 'integer|min:0|nullable',
+        ]);
+
         $user = auth()->user();
 
         if (is_null($user)) {
             throw new LogicException('Authenticated user not found');
         }
 
-        $bookings = $user->bookings()->orderBy('created_at', 'DESC')->get();
+        $bookings = $user->bookings()
+            ->searchBy($queryData['search'] ?? '')
+            ->sortedBy($queryData['sort'] ?? 'created_at', $queryData['order'] ?? 'asc')
+            ->filterBy($queryData['min_price_filter'] ?? '', $queryData['max_price_filter'] ?? '')
+             ->get();
 
         return view('bookings.index', compact('bookings'));
     }
