@@ -78,7 +78,7 @@ class BookingController extends Controller
     public function verify(Booking $booking, Request $request): RedirectResponse
     {
         if (! $request->hasValidSignature()) {
-            session()->flash('danger-flash', __('Booking confirmation failed. Wrong link signature.'));
+            session()->flash('danger-flash', __('Booking confirmation failed'));
 
             abort(401);
         }
@@ -98,7 +98,7 @@ class BookingController extends Controller
 
         $booking->delete();
 
-        session()->flash('success-flash', __('Booking removed'));
+        session()->flash('success-flash', __('Booking canceled'));
 
         return Redirect::route('bookings.index', [], 303);
     }

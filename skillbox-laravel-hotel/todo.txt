@@ -1,11 +1,12 @@
 TODOS:
 
+
     - Write tests
-    - Add translation
-    - Translate emails
     - Add pagination for hotels rooms and bookings
 
     - Add admin panel
+
+    - Add localisation
 
     - Run phpstan
     - Check todos

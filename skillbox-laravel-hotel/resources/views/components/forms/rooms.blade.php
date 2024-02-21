@@ -31,17 +31,17 @@
         </x-input-label>
 
 
-        <x-input-label class="flex flex-wrap flex-row gap-x-3 gap-y-3 items-center" for="sort">Sort by:
+        <x-input-label class="flex flex-wrap flex-row gap-x-3 gap-y-3 items-center" for="sort">{{ __('Sort by') }}:
 
             <x-select id="sort" name="sort">
-                <x-select-option value="name" text="Name" />
-                <x-select-option value="price" text="Price" />
-                <x-select-option value="floor_area" text="Floor Area" />
+                <x-select-option value="name" text="{{ __('Name') }}" />
+                <x-select-option value="price" text="{{ __('Price') }}" />
+                <x-select-option value="floor_area" text="{{ __('Floor Area') }}" />
             </x-select>
 
             <x-select id="order" name="order">
-                <option value="asc" {{ request()->input('order') === 'asc' ? 'selected' : ''}}>Ascending</option>
-                <option value="desc" {{ request()->input('order') === 'desc' ? 'selected' : ''}}>Descending</option>
+                <option value="asc" {{ request()->input('order') === 'asc' ? 'selected' : ''}}>{{ __('Ascending') }}</option>
+                <option value="desc" {{ request()->input('order') === 'desc' ? 'selected' : ''}}>{{ __('Descending') }}</option>
             </x-select>
 
         </x-input-label>

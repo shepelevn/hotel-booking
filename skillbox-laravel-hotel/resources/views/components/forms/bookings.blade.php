@@ -17,26 +17,26 @@
         </x-input-label>
 
 
-        <x-input-label class="flex flex-wrap flex-row gap-x-3 gap-y-3 items-center" for="sort">Sort by:
+        <x-input-label class="flex flex-wrap flex-row gap-x-3 gap-y-3 items-center" for="sort">{{ __('Sort by') }}:
 
             <x-select id="sort" name="sort">
-                <x-select-option value="created_at" text="Creation Date" />
-                <x-select-option value="price" text="Price" />
-                <x-select-option value="room_name" text="Room Name" />
-                <x-select-option value="days" text="Days" />
-                <x-select-option value="started_at" text="Starting Date" />
-                <x-select-option value="verified_at" text="Verification Date" />
+                <x-select-option value="created_at" text="{{ __('Creation Date') }}" />
+                <x-select-option value="price" text="{{ __('Price') }}" />
+                <x-select-option value="room_name" text="{{ __('Room Name') }}" />
+                <x-select-option value="days" text="{{ __('Days') }}" />
+                <x-select-option value="started_at" text="{{ __('Starting Date') }}" />
+                <x-select-option value="verified_at" text="{{ __('Verification Date') }}" />
             </x-select>
 
             <x-select id="order" name="order">
-                <option value="asc" {{ request()->input('order') === 'asc' ? 'selected' : ''}}>Ascending</option>
-                <option value="desc" {{ request()->input('order') === 'desc' ? 'selected' : ''}}>Descending</option>
+                <option value="asc" {{ request()->input('order') === 'asc' ? 'selected' : ''}}>{{ __('Ascending') }}</option>
+                <option value="desc" {{ request()->input('order') === 'desc' ? 'selected' : ''}}>{{ __('Descending') }}</option>
             </x-select>
 
         </x-input-label>
 
         <div>
-            <x-the-button type="submit" class=" h-full w-full">Apply Filter</x-the-button>
+            <x-the-button type="submit" class=" h-full w-full">{{ __('Apply') }}</x-the-button>
         </div>
     </div>
 </form>

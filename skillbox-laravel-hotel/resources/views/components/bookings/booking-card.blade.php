@@ -28,7 +28,7 @@
                         <p class="text-sm leading-none text-gray-800"><span>Кол-во ночей: </span> {{ $booking->days }}
                         </p>
                         @if (!$booking->verified_at)
-                            <p class="text-red-500">Not verified</p>
+                            <p class="text-red-500">{{ __('Not verified') }}</p>
                         @endif
                     </div>
                 </div>
