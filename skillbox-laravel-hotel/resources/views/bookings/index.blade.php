@@ -13,6 +13,9 @@
                 @else
                     <h1 class="text-lg md:text-xl font-semibold text-gray-800">Нет бронирований</h1>
                 @endif
+                <div class="mt-3">
+                    {{ $bookings->links() }}
+                </div>
             </div>
         </div>
     </div>

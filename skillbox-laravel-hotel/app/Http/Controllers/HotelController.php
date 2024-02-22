@@ -21,13 +21,13 @@ class HotelController extends Controller
             'max_price_filter' => 'integer|min:0|nullable',
         ]);
 
-        $hotelsQuery = Hotel::withMinPrice()
+        $hotels = Hotel::withMinPrice()
             ->searchBy($queryData['search'] ?? '')
             ->sortedBy($queryData['sort'] ?? 'name', $queryData['order'] ?? 'asc')
             ->filterBy($queryData['min_price_filter'] ?? '', $queryData['max_price_filter'] ?? '')
+            ->paginate(10)
+            ->appends($request->query())
         ;
-
-        $hotels = $hotelsQuery->get();
 
         return view('hotels.index', compact('hotels'));
     }
@@ -50,7 +50,9 @@ class HotelController extends Controller
                 ->searchBy($queryData['search'] ?? '')
                 ->sortedBy($queryData['sort'] ?? 'name', $queryData['order'] ?? 'asc')
                 ->filterBy($queryData['min_price_filter'] ?? '', $queryData['max_price_filter'] ?? '')
-                ->get();
+                ->paginate(10)
+                ->appends($request->query())
+            ;
 
             $totalDays = $bookingService->getDays(
                 new DateTimeImmutable($queryData['start_date']),

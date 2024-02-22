@@ -30,6 +30,9 @@
                         @foreach($rooms as $room)
                             <x-rooms.room-list-item :room="$room" :totalDays="$totalDays" class="mb-4"/>
                         @endforeach
+                        <div class="mt-3">
+                            {{ $rooms->links() }}
+                        </div>
                     </div>
                 @else
                     <div>

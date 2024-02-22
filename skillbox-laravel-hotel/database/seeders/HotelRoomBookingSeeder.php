@@ -21,8 +21,8 @@ class HotelRoomBookingSeeder extends Seeder
         DB::statement("ALTER TABLE `rooms` AUTO_INCREMENT = 1");
         DB::statement("ALTER TABLE `facility_room` AUTO_INCREMENT = 1");
 
-        Hotel::factory(10)->create()->each(function (Hotel $hotel) {
-            Room::factory(rand(3, 10))->create(['hotel_id' => $hotel->id])->each(function (Room $room) {
+        Hotel::factory(12)->create()->each(function (Hotel $hotel) {
+            Room::factory(rand(6, 20))->create(['hotel_id' => $hotel->id])->each(function (Room $room) {
                 $bookingsCount = rand(0, 3);
                 $startDelta = rand(1, 30);
 

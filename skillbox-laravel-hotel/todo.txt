@@ -1,7 +1,5 @@
 TODOS:
 
-    - Add pagination for hotels rooms and bookings
-
     - Add admin panel
 
     - Read the task file

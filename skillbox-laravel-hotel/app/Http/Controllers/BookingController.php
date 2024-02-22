@@ -35,7 +35,9 @@ class BookingController extends Controller
             ->searchBy($queryData['search'] ?? '')
             ->sortedBy($queryData['sort'] ?? 'created_at', $queryData['order'] ?? 'asc')
             ->filterBy($queryData['min_price_filter'] ?? '', $queryData['max_price_filter'] ?? '')
-             ->get();
+            ->paginate(1)
+            ->appends($request->query())
+        ;
 
         return view('bookings.index', compact('bookings'));
     }

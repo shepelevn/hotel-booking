@@ -10,5 +10,8 @@
                 <x-hotels.hotel-card :hotel="$hotel"></x-hotels.hotel-card>
             @endforeach
         </div>
+        <div class="mt-3">
+            {{ $hotels->links() }}
+        </div>
     </div>
 </x-app-layout>
