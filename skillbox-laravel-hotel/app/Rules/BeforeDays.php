@@ -9,6 +9,8 @@ use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 use LogicException;
 
+use function morphos\Russian\pluralize;
+
 class BeforeDays implements ValidationRule, DataAwareRule
 {
     private DateTimeImmutable $startDate;
@@ -48,8 +50,12 @@ class BeforeDays implements ValidationRule, DataAwareRule
             $inputDate = new DateTimeImmutable($value);
 
             if ($inputDate >= $this->maxDate) {
-                /* TODO: Add pluralisation to translation of "days" */
-                $fail(__('The dates interval must be less than :days days apart', ['days' => $this->days]));
+                /* TODO: Fix when localization is added */
+                /* $fail(_('The dates interval must be less than :days apart', ['days' => $this->days])); */
+
+                $daysString = pluralize($this->days, 'день');
+
+                $fail("Интервал дат должен быть не более чем $daysString");
             }
         }
     }
