@@ -30,7 +30,7 @@ class RoomFactory extends Factory
      */
     public function definition(): array
     {
-        $posterUrl = 'images/rooms/' . fake()->randomElement(self::IMAGE_URLS);
+        $posterUrl = 'rooms/' . fake()->randomElement(self::IMAGE_URLS);
 
         return [
             'name' => fake()->words(1, true),

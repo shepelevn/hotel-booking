@@ -21,7 +21,7 @@
         </x-input-label>
 
         <x-input-label class="flex flex-wrap items-center gap-3">
-            {{ __('Price Filter') }}
+            {{ __('Price filter for one night') }}
             <x-input class="max-w-24 [appearance:textfield]" type="number" name="min_price_filter" id="min_price_filter" value="{{ request()->input('min_price_filter') }}" min="0" />
         </x-input-label>
 

@@ -1,10 +1,8 @@
 TODOS:
 
-    - Add admin panel
-
-    - Read the task file
-
-    - Check app one more time
+    - Write README.md
+        - Write about the need to copy images to storage/app/public folder
+        - Инструкции по установке и запуску системы
 
     - Add localisation
     - Write tests for search, filter and search functions

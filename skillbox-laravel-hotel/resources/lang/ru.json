@@ -181,7 +181,8 @@
     "Precondition Required": "Требуется предусловие",
     "Preview": "Предпросмотр",
     "Price": "Цена",
-    "Price Filter": "Фильтр цены",
+    "Price filter": "Фильтр цены",
+    "Price filter for one night": "Фильтр цены за одну ночь",
     "Processing": "Идет обработка",
     "Profile": "Профиль",
     "Profile Information": "Информация профиля",
@@ -287,5 +288,7 @@
     "Booking Verification": "Подтверждение Бронирования",
     "Please verify your booking #:id for the hotel \":hotelName\" room \":roomName\" by following": "Пожалуйста подтвердите бронирование #:id для отеля \":hotelName\" комнаты \":roomName\" пройдя по",
     "this link": "этой ссылке",
-    "The dates interval must be less than :days days apart": "Интервал дат должен быть не более :days дней"
+    "The dates interval must be less than :days days apart": "Интервал дат должен быть не более :days дней",
+    "No rooms found": "Комнаты не найдены",
+    "Room Image": "Фотография комнаты"
 }

@@ -29,7 +29,7 @@ class HotelFactory extends Factory
      */
     public function definition(): array
     {
-        $posterUrl = 'images/hotels/' . fake()->randomElement(self::IMAGE_URLS);
+        $posterUrl = 'hotels/' . fake()->randomElement(self::IMAGE_URLS);
 
         return [
             'name' => fake()->words(rand(1, 3), true),
