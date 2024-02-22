@@ -1,12 +1,15 @@
 TODOS:
 
-
-    - Write tests
     - Add pagination for hotels rooms and bookings
 
     - Add admin panel
 
+    - Read the task file
+
+    - Check app one more time
+
     - Add localisation
+    - Write tests for search, filter and search functions
 
     - Run phpstan
     - Check todos

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Facility;
+use App\Models\Hotel;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -38,6 +39,7 @@ class RoomFactory extends Factory
             'floor_area' => fake()->randomFloat(2, 20, 50),
             'type' => fake()->words(rand(1, 3), true),
             'price' => fake()->randomFloat(2, 1000, 10000),
+            'hotel_id' => fake()->randomElement(Hotel::pluck('id')),
         ];
     }
 

@@ -6,6 +6,7 @@ parameters:
         - app
         - database/factories
         - database/seeders
+        - tests
     excludePaths:
         - vendor
         - app/Http/Controllers/Auth

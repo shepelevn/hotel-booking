@@ -7,12 +7,12 @@ return new class () extends Migration {
     public function up(): void
     {
         DB::statement('
-            CREATE VIEW `hotel_prices` AS
-            SELECT 
+            CREATE OR REPLACE VIEW `hotel_prices` AS
+            SELECT
                 h.id AS hotel_id,
                 MIN(r.price) AS min_price
             FROM `hotels` AS h
-            LEFT JOIN `rooms` AS r 
+            LEFT JOIN `rooms` AS r
             ON r.hotel_id = h.id
             GROUP BY h.id;
         ');

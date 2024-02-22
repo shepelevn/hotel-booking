@@ -286,5 +286,6 @@
     "Booking canceled": "Бронирование отменено",
     "Booking Verification": "Подтверждение Бронирования",
     "Please verify your booking #:id for the hotel \":hotelName\" room \":roomName\" by following": "Пожалуйста подтвердите бронирование #:id для отеля \":hotelName\" комнаты \":roomName\" пройдя по",
-    "this link": "этой ссылке"
+    "this link": "этой ссылке",
+    "The dates interval must be less than :days days apart": "Интервал дат должен быть не более :days дней"
 }

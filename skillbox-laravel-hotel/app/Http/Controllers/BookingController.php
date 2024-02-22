@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Room;
+use App\Rules\BeforeDays;
 use App\Services\BookingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -50,7 +51,7 @@ class BookingController extends Controller
     {
         $bookingData = $this->validate($request, [
             'started_at' => 'required|date|after:yesterday',
-            'finished_at' => 'required|date|after:start_date',
+            'finished_at' => ['required', 'date', 'after:started_at', new BeforeDays('started_at', 61)],
             'room_id' => 'required|integer|exists:rooms,id',
         ]);
 
