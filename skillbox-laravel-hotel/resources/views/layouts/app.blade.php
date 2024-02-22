@@ -9,9 +9,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-        @vite('./resources/css/app.css')
+        @vite('resources/css/app.css')
 
-        @vite('./resources/js/app.js')
+        @vite('resources/js/app.js')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
 
     </head>
