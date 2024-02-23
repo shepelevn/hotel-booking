@@ -1,5 +1,8 @@
 TODOS:
 
+    - Update Readme. Write about voyager:save-bread and voyager:load-bread. Also write about admin@example.com
+    - Test moving project
+
     - Add localisation
     - Write tests for search, filter and search functions
 
