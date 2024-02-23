@@ -22,14 +22,14 @@ class BookingPolicy
         return $user->hasRole('admin');
     }
 
-    public function add(User $user): bool
+    public function add(): bool
     {
-        return $user->hasRole('admin');
+        return false;
     }
 
-    public function edit(User $user): bool
+    public function edit(): bool
     {
-        return $user->hasRole('admin');
+        return false;
     }
 
     public function read(User $user): bool

@@ -1,5 +1,7 @@
 TODOS:
 
+    - Check voyager and site functionality
+
     - Add localisation
     - Write tests for search, filter and search functions
 
@@ -7,3 +9,4 @@ TODOS:
     - Check todos
     - Delete var_dump's, dd's and dump's
     - Delete unused imports for ./app/ ./database/ and ./tests/
+    - Run tests

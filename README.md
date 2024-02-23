@@ -26,6 +26,7 @@
 * Создать ссылку на директорию `storage` с помощью команды `php artisan storage:link`
 * Выполнить сборку Vite `npm run build` или запустить слушатель `npm run dev`
 * Запустить сервер командой `php artisan serve` сервер слушает адрес `localhost:8000`
+* Выполнить команду `php artisan cache:clear` для обновления меню Voyager
 
 ## Конфигурация
 
@@ -34,10 +35,11 @@
 
 ## Примечания
 
-Тесты запускаются с помощью команды `php artisan test`
+Тесты запускаются с помощью команды `php artisan test`.
 
 `UserSeeder` создаёт дополнительно пользователей для тестирования:  
-`user@example.com` и `admin@example.com`
+`user@example.com` и `admin@example.com`.
 
 Административная панель Voyager сохраняется с помощью команды  
-`php artisan voyager:save-bread`
+`php artisan voyager:save-bread`.
+Команда использует пользователя root.
