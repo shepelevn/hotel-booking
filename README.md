@@ -22,11 +22,11 @@
 * Добавить конфигурацию в файл `.env`
 * Выполнить миграцию и наполнение `php artisan migrate:fresh --seed`
 * Перенести формы BREAD Voyager с помощью команды `php artisan voyager:load-bread`
+* Выполнить команду `php artisan cache:clear` для обновления меню Voyager
 * Скопировать папки с изображениями из `../images/` в `storage/app/public/`
 * Создать ссылку на директорию `storage` с помощью команды `php artisan storage:link`
 * Выполнить сборку Vite `npm run build` или запустить слушатель `npm run dev`
 * Запустить сервер командой `php artisan serve` сервер слушает адрес `localhost:8000`
-* Выполнить команду `php artisan cache:clear` для обновления меню Voyager
 
 ## Конфигурация
 
@@ -38,7 +38,7 @@
 Тесты запускаются с помощью команды `php artisan test`.
 
 `UserSeeder` создаёт дополнительно пользователей для тестирования:  
-`user@example.com` и `admin@example.com`.
+`user@example.com` и `admin@example.com`. Пароль: "password".
 
 Административная панель Voyager сохраняется с помощью команды  
 `php artisan voyager:save-bread`.

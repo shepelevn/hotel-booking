@@ -1,7 +1,5 @@
 TODOS:
 
-    - Check voyager and site functionality
-
     - Add localisation
     - Write tests for search, filter and search functions
 
