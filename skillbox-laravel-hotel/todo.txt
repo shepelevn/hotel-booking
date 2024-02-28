@@ -1,0 +1,10 @@
+TODOS:
+
+    - Add localisation
+    - Write tests for search, filter and search functions
+
+    - Run phpstan
+    - Check todos
+    - Delete var_dump's, dd's and dump's
+    - Delete unused imports for ./app/ ./database/ and ./tests/
+    - Run tests

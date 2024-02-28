@@ -1,0 +1,29 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+parameters:
+    level: max
+    paths:
+        - app
+        - database/factories
+        - database/seeders
+        - tests
+    excludePaths:
+        - vendor
+        - app/Http/Controllers/Auth
+        - app/Http/Controllers/ProfileController.php
+        - app/Http/Requests/Auth/LoginRequest.php
+        - app/Http/Requests/ProfileUpdateRequest.php
+        - database/seeders/DataRowsTableSeeder.php
+        - database/seeders/DataTypesTableSeeder.php
+        - database/seeders/MenuItemsTableSeeder.php
+        - database/seeders/MenusTableSeeder.php
+        - database/seeders/PermissionRoleTableSeeder.php
+        - database/seeders/PermissionsTableSeeder.php
+        - database/seeders/RolesTableSeeder.php
+        - database/seeders/SettingsTableSeeder.php
+        - database/seeders/TranslationsTableSeeder.php
+        - database/seeders/VoyagerDatabaseSeeder.php
+        - database/seeders/VoyagerDummyDatabaseSeeder.php
+    bootstrapFiles:
+    typeAliases:
+    ignoreErrors:
