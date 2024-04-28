@@ -1,45 +1,49 @@
-# Сервис бронирования отелей
+# Hotel booking service
 
-## Содержание
+## README.md
 
-* [Описание проекта](#описание-проекта)
-* [Развертывание проекта](#развертывание-проекта)
-* [Конфигурация](#конфигурация)
-* [Примечания](#примечания)
+* en [English](README.md)
+* ru [Русский](./readme/README.ru.md)
 
-## Описание проекта
+## Table of Contents
 
-Сервис бронирования отелей, написанный на Laravel. Сайт для поиска отелей
-и бронирования комнат. Сайт имеет функционал поиска, сортировки и
-фильтрации отелей, комнат и бронирований.
+* [Project description](#project-description)
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Notes](#notes)
 
-## Развертывание проекта
+## Project description
 
-Действия при развертывании проекта:
+Hotel booking online service written in Laravel. A website for searching
+hotels and book the rooms. The website features search, sorting and
+filtering hotels, rooms and bookings.
 
-* Установить зависимости Composer `composer install`
-* Установить зависимости npm `npm install`
-* Добавить конфигурацию в файл `.env`
-* Выполнить миграцию и наполнение `php artisan migrate:fresh --seed`
-* Перенести формы BREAD Voyager с помощью команды `php artisan voyager:load-bread`
-* Выполнить команду `php artisan cache:clear` для обновления меню Voyager
-* Скопировать папки с изображениями из `../images/` в `storage/app/public/`
-* Создать ссылку на директорию `storage` с помощью команды `php artisan storage:link`
-* Выполнить сборку Vite `npm run build` или запустить слушатель `npm run dev`
-* Запустить сервер командой `php artisan serve` сервер слушает адрес `localhost:8000`
+## Installation
 
-## Конфигурация
+Steps for installing the project:
 
-Конфигурация находится в файле `.env`. Пример конфигурации  
-можно найти в файле `.env.example`.
+* Install Composer dependencies `composer install`
+* Install npm dependencies `npm install`
+* Add configuration to `.env` file
+* Run migration and seeding `php artisan migrate:fresh --seed`
+* Load Voyager BREAD forms with `php artisan voyager:load-bread`
+* Clear the cache with `php artisan cache:clear` to refresh Voyager menu
+* Copy image folders from `images/` to `storage/app/public/`
+* Create link to `storage` directory by running `php artisan storage:link`
+* Run Vite bundling `npm run build` or start the watcher `npm run dev`
+* Start the server with `php artisan serve`. Server is listening on `localhost:8000`
 
-## Примечания
+## Configuration
 
-Тесты запускаются с помощью команды `php artisan test`.
+Configuration is inside `.env` file. You can find examples in
+`.env.sample` file.
 
-`UserSeeder` создаёт дополнительно пользователей для тестирования:  
-`user@example.com` и `admin@example.com`. Пароль: "password".
+## Notes
 
-Административная панель Voyager сохраняется с помощью команды  
-`php artisan voyager:save-bread`.
-Команда использует пользователя root.
+Tests are launched by using the command `php artisan test`.
+
+`UserSeeder` creates accounts for testing: `user@example.com` and
+`admin@example.com`. The password is "password".
+
+You can save Voyager administrator panel forms with
+`php artisan voyager:save-bread`. The command needs root privileges.
