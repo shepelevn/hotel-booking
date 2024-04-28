@@ -1,10 +1,6 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
-            <x-form-validation-errors />
-            <x-forms.bookings />
-
             <div class="overflow-hidden">
                 @if($bookings->isNotEmpty())
                     @foreach($bookings as $booking)
@@ -13,9 +9,6 @@
                 @else
                     <h1 class="text-lg md:text-xl font-semibold text-gray-800">Нет бронирований</h1>
                 @endif
-                <div class="mt-3">
-                    {{ $bookings->links() }}
-                </div>
             </div>
         </div>
     </div>

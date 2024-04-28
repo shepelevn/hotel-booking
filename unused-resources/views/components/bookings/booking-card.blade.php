@@ -14,7 +14,7 @@
         </div>
         <div class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:space-x-6 w-full">
             <div class="pb-4 w-full md:w-2/5">
-                <img class="w-full block" src="{{ asset('storage/' . $booking->room->poster_url) }}" alt="Фотография забронированной комнаты"/>
+                <img class="w-full block" src="{{ $booking->room->poster_url }}" alt="image"/>
             </div>
             <div
                 class="md:flex-row flex-col flex justify-between items-start w-full md:w-3/5 pb-8 space-y-4 md:space-y-0">
@@ -27,9 +27,6 @@
                             {{ \Carbon\Carbon::parse($booking->finished_at)->format('d.m.Y') }}</p>
                         <p class="text-sm leading-none text-gray-800"><span>Кол-во ночей: </span> {{ $booking->days }}
                         </p>
-                        @if (!$booking->verified_at)
-                            <p class="text-red-500">{{ __('Not verified') }}</p>
-                        @endif
                     </div>
                 </div>
                 <div class="flex justify-end space-x-8 items-end w-full">

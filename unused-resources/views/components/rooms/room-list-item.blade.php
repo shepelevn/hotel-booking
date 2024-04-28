@@ -1,6 +1,6 @@
 <div {{ $attributes->merge(['class' => 'flex flex-col md:flex-row shadow-md']) }}>
     <div class="h-full w-full md:w-2/5">
-        <div class="h-64 w-full bg-cover bg-center bg-no-repeat" style="background-image: url({{ asset('storage/' . $room->poster_url) }})">
+        <div class="h-64 w-full bg-cover bg-center bg-no-repeat" style="background-image: url({{ $room->poster_url }})">
         </div>
     </div>
     <div class="p-4 w-full md:w-3/5 flex flex-col justify-between">
@@ -16,20 +16,12 @@
                         <span>• {{ $facility->name }} </span>
                     @endforeach
             </div>
-            <h3 class="font-bold mt-5">{{ __('Description') }}</h3>
-            <p>
-                {{ $room->description }}
-            </p>
-            <h3 class="font-bold mt-5">{{ __('Room type') }}</h3>
-            <p>
-                {{ $room->type }}
-            </p>
         </div>
         <hr>
         <div class="flex justify-end pt-2">
             <div class="flex flex-col">
-                <span class="text-lg font-bold">{{ $room->price * $totalDays }} руб.</span>
-                <span>за @plural($totalDays, 'ночь')</span>
+                <span class="text-lg font-bold">{{ $room->total_price }} руб.</span>
+                <span>за {{ $room->total_days }} ночей</span>
             </div>
             <form class="ml-4" method="POST" action="{{ route('bookings.store') }}">
                 @csrf

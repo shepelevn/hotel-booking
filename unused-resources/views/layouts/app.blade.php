@@ -9,15 +9,13 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-        @vite('resources/css/app.css')
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        @vite('resources/js/app.js')
+        <script src="{{ mix('js/app.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js"></script>
 
     </head>
     <body class="font-sans antialiased">
-        <x-flashes />
-
         <div class="bg-gray-100 min-h-screen">
             @include('layouts.navigation')
 

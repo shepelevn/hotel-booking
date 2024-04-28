@@ -17,15 +17,11 @@
                         {{ __('Hotels') }}
                     </x-nav-link>
                 </div>
-
-                @auth
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="{{ route('bookings.index') }}" active="{{ request()->routeIs('bookings.index') }}">
-                            {{ __('Bookings') }}
-                        </x-nav-link>
-                    </div>
-                @endauth
-
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('bookings.index') }}" active="{{ request()->routeIs('bookings.index') }}">
+                        {{ __('Bookings') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -49,34 +45,14 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('Edit Profile') }}
-                                </x-dropdown-link>
-
-                                @if (Auth::user()->hasRole('admin'))
-                                    <x-dropdown-link href="/admin">
-                                        {{ __('Administrator Panel') }}
-                                    </x-dropdown-link>
-                                @endif
-
-                                <x-dropdown-button type="submit">
+                                <x-dropdown-link :href="route('logout')"
+                                                 onclick="event.preventDefault();
+                                                this.closest('form').submit();">
                                     {{ __('Log Out') }}
-                                    </x-dropdown-link>
+                                </x-dropdown-link>
                             </form>
                         </x-slot>
                     </x-dropdown>
-                </div>
-            @else
-                <div>
-                    @if (Route::has('login'))
-                        <div class="py-6 text-right z-10">
-                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('Log in') }}</a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('Register') }}</a>
-                            @endif
-                        </div>
-                    @endif
                 </div>
             @endif
 
@@ -100,22 +76,12 @@
             </x-responsive-nav-link>
         </div>
 
-        @auth
-            <div class="pt-2 pb-3 space-y-1">
-                <x-responsive-nav-link href="{{ route('bookings.index') }}" active="{{ request()->routeIs('bookings.index') }}">
-                    {{ __('Bookings') }}
-                </x-responsive-nav-link>
-            </div>
-        @endauth
-
         <!-- Responsive Settings Options -->
         @if(auth()->check())
             <div class="pt-4 pb-1 border-t border-gray-200">
-                <div class="px-4 hover:bg-slate-50">
-                    <a href="{{ route('profile.edit') }}">
-                        <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                        <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-                    </a>
+                <div class="px-4">
+                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
 
                 <div class="mt-3 space-y-1">
@@ -124,8 +90,8 @@
                         @csrf
 
                         <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                            this.closest('form').submit();">
+                                               onclick="event.preventDefault();
+                                        this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
                     </form>
