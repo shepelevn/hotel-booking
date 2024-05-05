@@ -24,7 +24,7 @@ Steps for installing the project:
 
 * Install Composer dependencies `composer install`
 * Install npm dependencies `npm install`
-* Add configuration to `.env` file
+* Add configuration to `.env` file based on `.env.example`
 * Run migration and seeding `php artisan migrate:fresh --seed`
 * Load Voyager BREAD forms with `php artisan voyager:load-bread`
 * Clear the cache with `php artisan cache:clear` to refresh Voyager menu
@@ -36,7 +36,7 @@ Steps for installing the project:
 ## Configuration
 
 Configuration is inside `.env` file. You can find examples in
-`.env.sample` file.
+`.env.example` file.
 
 ## Notes
 

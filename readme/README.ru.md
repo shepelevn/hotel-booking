@@ -24,7 +24,7 @@
 
 * Установить зависимости Composer `composer install`
 * Установить зависимости npm `npm install`
-* Добавить конфигурацию в файл `.env`
+* Добавить конфигурацию в файл `.env` по примеру `.env.example`
 * Выполнить миграцию и наполнение `php artisan migrate:fresh --seed`
 * Перенести формы BREAD Voyager с помощью команды `php artisan voyager:load-bread`
 * Выполнить команду `php artisan cache:clear` для обновления меню Voyager
