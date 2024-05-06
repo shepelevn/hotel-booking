@@ -8,6 +8,7 @@
 ## Table of Contents
 
 * [Project description](#project-description)
+* [Technologies used in the backend part of the project](#technologies-used-in-the-backend-part-of-the-project)
 * [Installation](#installation)
 * [Configuration](#configuration)
 * [Notes](#notes)
@@ -17,6 +18,12 @@
 Hotel booking online service written in Laravel. A website for searching
 hotels and book the rooms. The website features search, sorting and
 filtering hotels, rooms and bookings.
+
+## Technologies used in the backend part of the project
+
+* `Laravel`
+* `MySQL`
+* `PHPStan`
 
 ## Installation
 
