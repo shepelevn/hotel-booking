@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use TypeError;
 
 class SaveBread extends Command
 {
@@ -20,12 +21,23 @@ class SaveBread extends Command
 
     public function handle(): void
     {
-        $databaseName = DB::connection()->getDatabaseName();
+        $connection = DB::connection();
 
-        exec(
-            'sudo mysqldump -u root -p '
-            . $databaseName
-            . ' data_rows data_types menus menu_items roles permission_role settings permissions >./resources/db/voyager-dump.sql'
+        $host = $connection->getConfig('host');
+        $port = $connection->getConfig('port');
+        $databaseName = $connection->getDatabaseName();
+
+        if (!is_string($host) || !is_numeric($port)) {
+            throw new TypeError('Some of the configuration variables have wrong type.');
+        }
+
+        $command = sprintf(
+            'mysqldump -h %s -P %d -u root -p %s data_rows data_types menus menu_items roles permission_role settings permissions >./resources/db/voyager-dump.sql',
+            escapeshellarg($host),
+            $port,
+            escapeshellarg($databaseName)
         );
+
+        shell_exec($command);
     }
 }
